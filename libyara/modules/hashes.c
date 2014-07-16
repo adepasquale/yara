@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 #include <yara/modules.h>
+#include <stdio.h>
 
 #define MODULE_NAME hashes
 
@@ -25,6 +26,19 @@ int module_load(
     void* module_data,
     size_t module_data_size)
 {
+  YR_MEMORY_BLOCK* block;
+
+  /*
+  foreach_memory_block(context, block)
+  {
+    printf("block base: %d\n", block->base);
+    printf("block size: %d\n", block->size);
+    printf("block data: %p\n", (void*)block->data);
+    if (block->next != NULL)
+      printf("block next: %p\n", (void*)block->next);
+  }
+  */
+
   return ERROR_SUCCESS;
 }
 
@@ -38,6 +52,7 @@ int module_unload(
 
 define_function(md5)
 {
+  YR_OBJECT* self = self();
   int64_t start_offset = integer_argument(1);
   int64_t data_length = integer_argument(2);
 
