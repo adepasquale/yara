@@ -4,3 +4,6 @@ MODULE(pe)
 #ifdef CUCKOO
 MODULE(cuckoo)
 #endif
+
+MODULE(hashes)
+

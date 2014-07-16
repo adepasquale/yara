@@ -6,6 +6,8 @@ if CUCKOO
 MODULES += modules/cuckoo.c
 endif
 
+MODULES += modules/hashes.c
+
 #
 # Add your modules here:
 #
